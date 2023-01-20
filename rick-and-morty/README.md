@@ -1,70 +1,108 @@
-# Getting Started with Create React App
+# Repaso PI 
+## Rick and Morty
+<p align='left'>
+    <img src='https://www.vodafone.es/c/statics/imagen/img_OG_Rick_y_Morty_T4_V2.jpg' </img>
+</p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Objetivos del Proyecto
+Construir una App utlizando React, Redux, Node y Sequelize.
 
-## Available Scripts
+## Comenzando
+1. Forkear el repositorio para tener una copia del mismo en sus cuentas
+2. Clonar el repositorio en sus computadoras para comenzar a trabajar
 
-In the project directory, you can run:
+Tendrán un boilerplate con la estructura general tanto del servidor como de cliente.
 
-### `npm start`
+***IMPORTANTE:*** Es necesario contar minimamente con la última versión estable de Node y NPM. Asegurarse de contar con ella para poder instalar correctamente las dependecias necesarias para correr el proyecto.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Actualmente las versiónes necesarias son:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Node: 12.18.3 o mayor NPM: 6.14.16 o mayor Para verificar que versión tienen instalada:
+```
+node -v
 
-### `npm test`
+npm -v
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## BoilerPlate
+El boilerplate cuenta con dos carpetas: ```api``` y ```client```. En estas carpetas estará el código del back-end y el front-end respectivamente.
 
-### `npm run build`
+En api crear un archivo llamado: .env que tenga la siguiente forma:
+```
+DB_USER=usuariodepostgres
+DB_PASSWORD=passwordDePostgres
+DB_HOST=localhost
+```
+Reemplazar ```usuariodepostgres``` y ```passwordDePostgres``` con tus propias credenciales para conectarte a postgres. Este archivo va ser ignorado en la subida a github, ya que contiene información sensible (las credenciales).
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Adicionalmente será necesario que creen desde psql una base de datos con el nombre **repasopi**.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+El contenido de client fue creado usando: Create React App.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Enunciado
+En este ejercicio vamos a crear una APP que utilice la API de [Rick and Morty](https://rickandmortyapi.com/). Vamos a crear nuestra app utilizando **REACT* y *REDUX** en la que podremos:
+- Ver todos los personajes en la página principal.
+- Crear un personaje.
 
-### `npm run eject`
+## Endpoints/Flags a utilizar
+- [ ] GET https://rickandmortyapi.com/api/character
+- [ ] GET https://rickandmortyapi.com/api/episode
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Base de datos
+Tendrá los siguientes modelos:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**Character:**
+- id
+- name
+- species
+- origin
+- image
+- created 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+**Episode:**
+- id
+- name
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+La relación de Character y Episode será de muchos a muchos, ya que un personaje puede aparecer en varios episodios, y en un episodio pueden haber varios personajes.
 
-## Learn More
+## Backend
+Tendrá las siguientes rutas:
+- [ ] GET /characters:
+    - Obtener el listado de personajes
+    - Debe devolver solo los datos necesarios para la ruta principal
+- [ ] GET /episodes:
+    - Debe devolver un listado con todos los episodios 
+    - En una primera instancia deberán obtenerlos desde la API externa y guardarlos en su propia base de datos y luego ya utilizarlos desde allí
+- [ ] POST /character:
+    - Recibe los datos recolectados desde el formulario controlado de la ruta de creación de personaje 
+    - Crea un personaje en la BDD
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Frontend
+Se debe desarrollar una aplicación de React/Redux que contenga las siguientes pantallas/rutas.
 
-### Code Splitting
+**Ruta principal**
+- [ ] Área donde se verá el listado de personajes, incluyendo:
+    - Imágen 
+    - Nombre
+    - Origen
+    - Especie
+    - Episodios
+ 
+**Ruta de creación de personaje**
+- [ ] Un formulario *controlado con JavaScript* con los siguientes campos:
+    - Nombre
+    - Origen
+    - Especie
+    - Imágen
+- [ ] Posibilidad de agregar uno o más episodios.
+- [ ] Botón para crear el personaje. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Extras
+Dependiendo de los tiempos que lleve el repaso, se podría agregar:
+- [ ] Ordenamiento
+- [ ] Botón para filtrar por personajes traidos de la Api o creados en la BDD
+- [ ] GET /character/:id
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
