@@ -1,7 +1,8 @@
-import { GET_CHARACTERS, CHARACTER_DETAIL, CLEAN_DETAIL,CLEAN_CHARACTER } from "./action-type";
+import { GET_CHARACTERS, CHARACTER_DETAIL, CLEAN_DETAIL,CLEAN_CHARACTER, DETAIL_NAME, CLEAN_NAME } from "./action-type";
 
 const initialState = {
     characters: [],
+    charName:[],
     characterDetail: {}
 }
 
@@ -12,6 +13,17 @@ case GET_CHARACTERS:
         ...state,
         characters: action.payload
     }
+    case DETAIL_NAME:
+        return {
+            ...state,
+            charName: action.payload,
+        }
+
+        case CLEAN_NAME:
+            return {
+                ...state,
+                charName: []
+            }
 
     case CHARACTER_DETAIL:
         return {

@@ -1,15 +1,18 @@
-import { getCharacterDetail, cleanDetail } from "../../redux/action";
+import { getCharacterDetail, cleanDetail} from "../../redux/action";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
+
 
 const CharacterDetail = () => {
     const dispatch = useDispatch();
     const { id } = useParams();
     const characterDetail = useSelector((state) => state.characterDetail);
-
+  
+    
     useEffect(() => {
         dispatch(getCharacterDetail(id));
+     
 
         return () => dispatch(cleanDetail())
     }, [])
@@ -27,9 +30,13 @@ const CharacterDetail = () => {
 
             <label>Origin:</label>
             <p>{characterDetail?.origin?.name}</p>
+           
 
             <button>
-                <Link to='/home' > Back </Link>
+                <Link to='/' > Back </Link>
+            </button>
+            <button>
+                <Link to='/home'>Home</Link>
             </button>
         </div>
     )

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import SearchBar from "../CharactersDetail/SearchBar/SearchBar";
 
 const Landing = () => {
     return(
@@ -7,6 +8,7 @@ const Landing = () => {
          <button>
             <Link to='/home'>Home</Link>
          </button>
+        <SearchBar/>
          </>
     )
 }
