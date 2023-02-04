@@ -1,0 +1,43 @@
+label{
+    color: aliceblue;
+}
+
+.conteiner{
+    position: relative;
+    margin: 0 auto;
+    background-color: #7a66666e;
+    align-content: center;
+    border-radius: 10px;
+    border: 1px solid #666666;
+    width: 500px;
+    height: 600px;
+}
+
+.element{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    justify-content: baseline;
+    align-items: center;
+}
+
+.user{
+  
+    color: aliceblue;
+}
+.inttext{
+  
+    background-color: aqua;
+}
+.pass{
+
+    color: aqua;
+}
+.inpass{
+  
+    background-color: aqua;
+}
+.login{
+   
+color: aqua;
+}

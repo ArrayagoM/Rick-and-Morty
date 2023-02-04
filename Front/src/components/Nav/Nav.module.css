@@ -1,0 +1,48 @@
+.conedor {
+    background-color: #1D1F20;
+    padding: 20px;
+}
+
+.Nav_conteiner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.logout, .About, .home {
+    color: #F5A623;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.search_container {
+    background-color: #F5A623;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+    .conedor {
+        background-color: #1D1F20;
+        padding: 20px;
+    }
+    
+    .Nav_conteiner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+    }
+    
+    .logout, .About, .home {
+        color: #F5A623;
+        text-decoration: none;
+        margin-right: 10px;
+    }
+    
+    .search_container {
+        background-color: #F5A623;
+        padding: 10px;
+        border-radius: 5px;
+        text-align: center;
+    }

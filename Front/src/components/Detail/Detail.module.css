@@ -1,0 +1,151 @@
+.Detail_container {
+    background-color: rgba(0, 0, 0, 0.67);
+    position: relative;
+    width: 100%;
+    height: 400px;
+    animation: appear 3s ease-in-out;
+  }
+  
+  .Detail_title {
+    position: absolute;
+    color: aliceblue;
+    left: 40%;
+    top: 0%;
+    animation: appearText 3s ease-in-out;
+  }
+  
+
+  .galactic_button {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.501);
+    left: 13%; /* posición del botón en el centro de la pantalla */
+    top: 5%; /* posición del botón en el centro de la pantalla */
+    width: 100px; /* ancho del botón */
+    height: 50px; /* alto del botón */
+    border: 2px solid #fff; /* borde del botón */
+    border-radius: 25px; /* bordes redondeados */
+    text-align: center; /* alineación del texto dentro del botón */
+    line-height: 50px; /* altura de línea para el texto dentro del botón */
+    color: #fff; /* color del texto dentro del botón */
+    font-size: 1.5rem; /* tamaño de fuente del texto dentro del botón */
+    animation: neon 3s ease-in-out infinite; /* animación neon que se repetirá infinitamente */
+  }
+  @keyframes neon {
+    0% {
+      border-color: rgb(14, 56, 224); /* color original del borde */
+    }
+    25% {
+      border-color: #00ffff; /* color de transición 1 */
+    }
+    50% {
+      border-color: #5500ff; /* color de transición 2 */
+    }
+    75% {
+      border-color: #721fe7; /* color de transición 3 */
+    }
+    100% {
+      border-color: rgb(156, 58, 226); /* color final */
+    }
+  }
+  
+
+
+
+  .containerImg {
+    position: absolute;
+    left: 40%;
+    top: 23%;
+  }
+  
+  .Detail_imge {
+    position: absolute;
+    left: 40%;
+    top: 70%;
+    border-radius: 50%;
+    animation: spinImg 3s ease-in-out;
+  }
+  
+  label {
+    font-family: 'Prompt', sans-serif;
+    font-size: 1rem;
+    color: aliceblue;
+  }
+  
+  p {
+    color: aliceblue;
+  }
+  
+  .Detail_status_conteiner {
+    position: absolute;
+    left: 33%;
+    top: 20%;
+  }
+  
+  .Deatil_specie_conteiner {
+    position: absolute;
+    left: 73%;
+    top: 20%;
+  }
+  
+  .Detail_gender_conteiner {
+    position: absolute;
+    left: 32%;
+    top: 80%;
+  }
+  
+  .Detail_origin_conteiner {
+    position: absolute;
+    left: 75%;
+    top: 80%;
+  }
+
+
+
+
+  .Detail_status_conteiner,
+  .Deatil_specie_conteiner,
+  .Detail_gender_conteiner,
+  .Detail_origin_conteiner {
+    animation: moveIn 1s ease-in-out;
+  }
+  
+  @keyframes moveIn {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
+  
+  
+  @keyframes appear {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes spinImg {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(180deg);
+    }
+  }
+  
+  @keyframes appearText {
+    from {
+      transform: skew(20deg);
+      opacity: 0;
+    }
+    to {
+      transform: skew(0deg);
+      opacity: 1;
+    }
+  }
+  
