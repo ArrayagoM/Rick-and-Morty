@@ -38,7 +38,7 @@ app.get('/rickandmorty/detail/:detailId', async(req, res) => {
             status: response?.status,
             species: response?.species,
             gender: response?.gender,
-            origin: response?.origin.name,
+            origin: response?.origin?.name,
             image: response?.image,
             
         }

@@ -1,10 +1,16 @@
-import { TOGGLE_FAVORITE } from "./action-type";
+import { ADD_FAVORITE, DELETE_FAVORITE } from "./action-type";
 
-export const toggleFavorite = (cardId) => {
+
+export const addFavorite = (character) => {
     return {
-        type: TOGGLE_FAVORITE,
-        payload: cardId
+        type: ADD_FAVORITE,
+        payload: character
     }
+}
+
+
+export const deleteFavorite = (id) => {
+    return { type: DELETE_FAVORITE, payload: id }
 }
 
 

@@ -1,17 +1,30 @@
 import style from './App.module.css'
-import { Routes,Route} from 'react-router-dom'
-import { useState } from 'react';
+import { Routes,Route, useLocation, useNavigate} from 'react-router-dom'
+import { useState, useEffect } from 'react';
 import About from './components/About/About';
 import Nav from './components/Nav/Nav';
 import Cards from './components/Cards/Cards.jsx'
 import Detail from './components/Detail/Detail';
 import Form from './components/Form/Form';
+import Favorites from './components/Favorites/Favorites';
+
 
 function App () {
-  // const location = useLocation();
-  // const navigate = useNavigate();
 const [characters, setCharacters] = useState([]);
 const [filteredCharacters, setFilteredCharacters] = useState([]);
+const location =  useLocation();
+const [access, setAccess] = useState(false);
+const navigate = useNavigate();
+
+const username = "juanmartinarrayago@gmail.com";
+const password = "1234567";
+
+const login = (userData) => {
+if(userData.username === username && userData.password === password){
+  setAccess(true);
+  navigate("/home");
+}
+}
 
 // Función que se ejecuta cuando se busca un personaje
 const onSearch = (character) => {
@@ -43,25 +56,21 @@ const onClose = (id) => {
 }
 
   // useEffect para obtener los personajes de la API al iniciar la aplicación
-  // useEffect(() => {
-  //   fetch('https://rickandmortyapi.com/api/character/')
-  //   .then((response) => response.json())
-  //   .then((data) => {
-  //     setFilteredCharacters(data.results);
-  //   });
-  // }, []);
+  useEffect(() => {
+  !access && navigate('/')
+  }, [access]);
 
  
 
   return (
     <div className={style.App} style={{ padding: '25px' }}>
-  
-  <Nav onSearch={onSearch} />
+  { location.pathname === '/' ? <Form login={login} />:  <Nav onSearch={onSearch} />}
   <hr/>
  <Routes>
  <Route path='/home' element={<Cards onClose={onClose} characters={characters}/>} />
   <Route path='/form' element={<Form/>}/>
    <Route path='/about' element={<About/>}/>
+  <Route path='/favorites' element={<Favorites/>}/>
    <Route path='/detail/:detailId' element={<Detail/>}/>
  </Routes>
 
