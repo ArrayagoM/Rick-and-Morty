@@ -1,4 +1,5 @@
 import style from './App.module.css'
+import axios from 'axios';
 import { Routes,Route, useLocation, useNavigate} from 'react-router-dom'
 import { useState, useEffect } from 'react';
 import About from './components/About/About';
@@ -11,6 +12,7 @@ import Favorites from './components/Favorites/Favorites';
 
 function App () {
 const [characters, setCharacters] = useState([]);
+const [ char, setCahr] = useState([]);
 const [filteredCharacters, setFilteredCharacters] = useState([]);
 const location =  useLocation();
 const [access, setAccess] = useState(false);
@@ -25,6 +27,13 @@ if(userData.username === username && userData.password === password){
   navigate("/home");
 }
 }
+
+
+// const onDate = async (char) => {
+// let data = (await axios (`https://rickandmortyapi.com/api/character/${char}`)).data;
+// console.log(data);
+// return data;
+// }
 
 // Función que se ejecuta cuando se busca un personaje
 const onSearch = (character) => {
@@ -68,13 +77,14 @@ const onClose = (id) => {
   <hr/>
  <Routes>
  <Route path='/home' element={<Cards onClose={onClose} characters={characters}/>} />
+ 
   <Route path='/form' element={<Form/>}/>
    <Route path='/about' element={<About/>}/>
   <Route path='/favorites' element={<Favorites/>}/>
    <Route path='/detail/:detailId' element={<Detail/>}/>
  </Routes>
-
-<Cards characters={filteredCharacters}/>
+<hr/>
+{/* <Cards characters={character}/> */}
   
 </div>
   )

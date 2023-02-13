@@ -32,13 +32,15 @@ useEffect(() => {
   
    return (
       <div className={style.Card}>
-        {
+    <div className={style.ilove}>
+    {
         isFav ? (
          <button onClick={handleFavorite}>❤️</button>
         ) : (
         <button onClick={handleFavorite}>🤍</button>
         )
         }
+    </div>
          <button className={style.Card_btn} onClick={onClose}>X</button>
          <Link to={`/detail/${id}`}>
        <h2 className={style.Card_name}>{name}</h2>

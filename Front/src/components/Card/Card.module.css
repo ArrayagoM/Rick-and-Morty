@@ -50,4 +50,16 @@
     width: 15px;
     color: red;
   }
+
+
+  .ilove{
+    position: absolute;
+    top: 0,5px;
+    border: none;
+  }
+
+  .ilove:hover{
+    background-color: black;
+    scale: 5,1;
+  }
   

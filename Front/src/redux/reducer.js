@@ -13,7 +13,7 @@ const reducer = (state = initialState, action)=> {
             return {
                    ...state,
                   myFavorites: [...state.allCharacters, action.payload],
-                  allCharacters: [...state.allCharacters, action.payload]
+                  allCharacters: [...state.myFavorites, action.payload]
                   }
         case DELETE_FAVORITE:
             return {
@@ -33,8 +33,8 @@ const reducer = (state = initialState, action)=> {
       ...state,
       myFavorites: 
       action.payload === "Ascendente"
-      ? state.allCharacters.sort((a,b) => a.id - b.id )//menor 
-      : state.allCharacters.sort((a,b) => b.id - a.id )//mayor
+      ? state.allCharacters.sort((a,b) => a.id - b.id )
+      : state.allCharacters.sort((a,b) => b.id - a.id )
     }
 
     default:

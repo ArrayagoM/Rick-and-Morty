@@ -36,7 +36,7 @@ const Favorites = () => {
 {
 myFavorites.map((c) => {
     return (
-        <div>
+        <div className={style.conteiner}>
         <button className={style.Card_btn} onClick={c.onClose}>X</button>
         <Link to={`/detail/${c.id}`}>
         <h2 className={style.Card_name}>{c.name}</h2>
